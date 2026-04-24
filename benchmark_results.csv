@@ -1,0 +1,245 @@
+case,difficulty,mem_latency,nomem_latency,mem_hit_rate,evaluation
+User Preference Recall,Medium,8.809800306955973,6.561839421590169,0.3333333333333333,"```json
+{
+  ""SessionA"": {
+    ""Relevance"": 6,
+    ""ContextUtilization"": 7,
+    ""TokenEfficiency"": 8,
+    ""reasoning"": {
+      ""Relevance"": ""The AI failed to recall the user's favorite color in the last turn despite having it noted in an earlier exchange."",
+      ""ContextUtilization"": ""The AI utilized its memory to reference a previous interaction, but did not effectively remember the user's preferences when asked."",
+      ""TokenEfficiency"": ""Responses were generally concise, but the overall effectiveness was diminished due to the memory lapses.""
+    }
+  },
+  ""SessionB"": {
+    ""Relevance"": 5,
+    ""ContextUtilization"": 3,
+    ""TokenEfficiency"": 9,
+    ""reasoning"": {
+      ""Relevance"": ""The AI acknowledged the user's preferences but failed to retain or recall information from prior messages."",
+      ""ContextUtilization"": ""There was no utilization of memory since it cannot recall previous sessions, leading to a disconnect in context."",
+      ""TokenEfficiency"": ""Responses were clear and succinct, staying true to the user's preference for concise answers.""
+    }
+  }
+}
+```"
+Semantic Fact Retrieval,Medium,10.317439317703247,6.761060953140259,0.5,"```json
+{
+  ""Session A"": {
+    ""relevance"": 10,
+    ""context_utilization"": 9,
+    ""token_efficiency"": 8,
+    ""reasoning"": {
+      ""relevance"": ""The responses are accurate and directly related to the user's queries about DeepSeek-V3 and recent LLMs, utilizing previously mentioned information effectively."",
+      ""context_utilization"": ""The session utilizes the memory of the previous conversation effectively to reinforce the information about DeepSeek-V3, enhancing coherence in responses."",
+      ""token_efficiency"": ""While the responses are informative, they could be trimmed slightly for improved conciseness without losing key information."",
+    }
+  },
+  ""Session B"": {
+    ""relevance"": 9,
+    ""context_utilization"": 0,
+    ""token_efficiency"": 9,
+    ""reasoning"": {
+      ""relevance"": ""The responses are relevant and provide valuable information about DeepSeek-V3 and recent LLMs, though not as comprehensive as Session A."",
+      ""context_utilization"": ""There is no memory utilized in this session, resulting in a lack of connection between turns, which detracts from the overall coherence."",
+      ""token_efficiency"": ""The responses are well-structured and concise, delivering the necessary information without excessive elaboration.""
+    }
+  }
+}
+```"
+Episodic Experience,Hard,4.86012617746989,11.543569405873617,0.0,"```json
+{
+  ""SessionA"": {
+    ""Relevance"": 5,
+    ""ContextUtilization"": 2,
+    ""TokenEfficiency"": 7,
+    ""reasoning"": {
+      ""Relevance"": ""Session A acknowledges the user's change in plans but fails to recall the original statement about Japan, which impacts overall relevance."",
+      ""ContextUtilization"": ""Despite having memory capabilities, the session does not utilize any past memories effectively, leading to confusion about the user's question about their change in plans."",
+      ""TokenEfficiency"": ""The responses are generally concise and informative, providing relevant information without unnecessary elaboration.""
+    }
+  },
+  ""SessionB"": {
+    ""Relevance"": 5,
+    ""ContextUtilization"": 0,
+    ""TokenEfficiency"": 6,
+    ""reasoning"": {
+      ""Relevance"": ""Like Session A, Session B also fails to remember the initial travel plans, affecting its relevance despite providing engaging responses."",
+      ""ContextUtilization"": ""Session B does not have memory, leading to a complete lack of context utilization. It cannot recall past conversations at all."",
+      ""TokenEfficiency"": ""While the responses are mostly concise, they are slightly less efficient than Session A in terms of token use, producing longer responses with similar information.""
+    }
+  }
+}
+```"
+Context Window Stress,Hard,13.389040867487589,7.611218452453613,0.3333333333333333,"```json
+{
+  ""SessionA"": {
+    ""scores"": {
+      ""relevance"": 9,
+      ""context_utilization"": 8,
+      ""token_efficiency"": 7
+    },
+    ""reasoning"": {
+      ""relevance"": ""Session A accurately recalled the correct 5th item (elderberry) from the list provided earlier, demonstrating a good understanding of the user's request."",
+      ""context_utilization"": ""The session effectively utilized previous memories to retrieve the information, though there could be improvement in handling the second turn where it failed to recall the list explicitly."",
+      ""token_efficiency"": ""While the responses were mostly concise, some answers could have been optimized further to reduce token usage without losing clarity.""
+    }
+  },
+  ""SessionB"": {
+    ""scores"": {
+      ""relevance"": 5,
+      ""context_utilization"": 2,
+      ""token_efficiency"": 8
+    },
+    ""reasoning"": {
+      ""relevance"": ""Session B did not successfully recall any item from the list in response to the user’s specific question, reflecting a lack of relevance in the responses."",
+      ""context_utilization"": ""The session completely lacked memory, which resulted in an inability to utilize any prior context or content from the initial turn, leading to vague responses."",
+      ""token_efficiency"": ""Responses in Session B were relatively succinct, but the lack of context resulted in inaccuracies, which diminished overall effectiveness despite acceptable token use.""
+    }
+  }
+}
+```"
+Combined Memory,Hard,9.91242790222168,4.482924779256185,0.6666666666666666,"```json
+{
+  ""SessionA"": {
+    ""Relevance"": 10,
+    ""Context Utilization"": 9,
+    ""Token Efficiency"": 8,
+    ""reasoning"": {
+      ""Relevance"": ""Session A accurately recalled the user's name, Alex, and the specific detail about Llama 4, demonstrating a strong memory of relevant information."",
+      ""Context Utilization"": ""The session effectively used stored memories to provide context in its responses. However, there could have been a more concise integration of recall which prevented a perfect score."",
+      ""Token Efficiency"": ""While the responses were generally concise, some could be streamlined further for efficiency.""
+    }
+  },
+  ""SessionB"": {
+    ""Relevance"": 4,
+    ""Context Utilization"": 1,
+    ""Token Efficiency"": 7,
+    ""reasoning"": {
+      ""Relevance"": ""Session B failed to remember relevant user details or previous discussions, which significantly hindered its relevance."",
+      ""Context Utilization"": ""Without memory, it could not utilize any context from prior turns, leading to a very low score in this area."",
+      ""Token Efficiency"": ""Responses were generally concise and relevant, albeit lacking the contextual detail from previous turns, making them less effectively informative.""
+    }
+  }
+}
+```"
+Personal Preferences Cross-Turn,Medium,10.167810678482056,18.960606575012207,0.5,"```json
+{
+  ""Session_A"": {
+    ""Relevance"": 10,
+    ""Context Utilization"": 10,
+    ""Token Efficiency"": 8,
+    ""reasoning"": {
+      ""Relevance"": ""Session A accurately recalled the user's peanut allergy and incorporated it into the recipe suggestion, making it highly relevant."",
+      ""Context Utilization"": ""The session effectively utilized memory to build on previous interactions and ensure safety in the recipe provided."",
+      ""Token Efficiency"": ""While the response provided great detail, it could be more concise to improve efficiency, but the clarity and thoroughness were maintained.""
+    }
+  },
+  ""Session_B"": {
+    ""Relevance"": 6,
+    ""Context Utilization"": 0,
+    ""Token Efficiency"": 7,
+    ""reasoning"": {
+      ""Relevance"": ""Session B acknowledged the user's peanut allergy but didn't directly integrate it into the recipe suggestion, making it less relevant for personalized assistance."",
+      ""Context Utilization"": ""There was no use of memory since the AI did not retain any information about the peanut allergy during the session."",
+      ""Token Efficiency"": ""The response was somewhat concise, but the additional details provided in the recipe could have been trimmed without losing essential information.""
+    }
+  }
+}
+```"
+Detailed Experience Recall,Hard,6.865035176277161,5.074303150177002,0.0,"```json
+{
+  ""Session A"": {
+    ""Relevance"": 2,
+    ""Context Utilization"": 1,
+    ""Token Efficiency"": 6,
+    ""reasoning"": {
+      ""Relevance"": ""The session touches on the end of 'Inception,' relevant to the user's statement, but does not recall specifics from previous interactions, leading to a lack of overall relevance in responding to the user's second turn."",
+      ""Context Utilization"": ""There are no memories utilized in this session. The AI fails to recall past interactions, which significantly impacts its ability to create a continuous conversation."",
+      ""Token Efficiency"": ""The response is relatively clear and provides good information about the film's ending but could be more concise.""
+    }
+  },
+  ""Session B"": {
+    ""Relevance"": 8,
+    ""Context Utilization"": 0,
+    ""Token Efficiency"": 7,
+    ""reasoning"": {
+      ""Relevance"": ""The response effectively summarizes the ending of 'Inception' and addresses the user's confusion, demonstrating relevance to the initial statement."",
+      ""Context Utilization"": ""Like Session A, this session does not utilize any past memories, resulting in a score of 0 for this criterion."",
+      ""Token Efficiency"": ""The response is informative and mostly concise, but it could have been slightly more succinct while retaining relevance.""
+    }
+  }
+}
+```"
+Multi-Step Reasoning with Memory,Hard,9.574322064717611,4.81181796391805,0.3333333333333333,"```json
+{
+  ""Session_A"": {
+    ""Relevance"": 10,
+    ""Context Utilization"": 9,
+    ""Token Efficiency"": 9,
+    ""reasoning"": {
+      ""Relevance"": ""Session A effectively recalled important information about the project's deadline and the user's report-writing time."",
+      ""Context Utilization"": ""The session made excellent use of memories by combining previous inputs to provide a precise answer to the user's query about when to start the report."",
+      ""Token Efficiency"": ""The responses were mostly concise while still providing thorough information, demonstrating good use of tokens.""
+    }
+  },
+  ""Session_B"": {
+    ""Relevance"": 6,
+    ""Context Utilization"": 3,
+    ""Token Efficiency"": 7,
+    ""reasoning"": {
+      ""Relevance"": ""Session B acknowledged the inputs but didn't effectively tie them to the user's context, resulting in a less relevant response."",
+      ""Context Utilization"": ""Without memory, the session failed to utilize past interactions, leading to generic instructions instead of tailored guidance for the user's specific situation."",
+      ""Token Efficiency"": ""While the response was relatively concise, it lacked clarity and precision which reduced its effectiveness.""
+    }
+  }
+}
+```"
+Fact Verification,Easy,16.318064212799072,7.6983338594436646,0.5,"```json
+{
+  ""SessionA"": {
+    ""Relevance"": 10,
+    ""Context Utilization"": 8,
+    ""Token Efficiency"": 9,
+    ""reasoning"": {
+      ""Relevance"": ""The agent accurately recalled the previous fact stating the speed of light, reflecting high relevance to the user's query."",
+      ""Context Utilization"": ""The session effectively used the memory from the first turn to enhance the response in the second turn, but could have directly referenced it in the response rather than summarizing it."",
+      ""Token Efficiency"": ""Responses were clear, accurate, and appropriately concise, although the first turn had slightly more tokens than necessary.""
+    }
+  },
+  ""SessionB"": {
+    ""Relevance"": 9,
+    ""Context Utilization"": 0,
+    ""Token Efficiency"": 8,
+    ""reasoning"": {
+      ""Relevance"": ""The agent provided correct information regarding the speed of light in both turns, demonstrating good relevance."",
+      ""Context Utilization"": ""The session did not utilize any memory, which limited its ability to build upon context from previous turns."",
+      ""Token Efficiency"": ""While the responses were generally concise and accurate, there was a bit of unnecessary elaboration in the first response.""
+    }
+  }
+}
+```"
+Session Switch,Medium,6.139740546544393,9.264610449473063,0.0,"```json
+{
+  ""Session_A"": {
+    ""Relevance"": 8,
+    ""Context_Utilization"": 5,
+    ""Token_Efficiency"": 7,
+    ""reasoning"": {
+      ""Relevance"": ""The AI correctly recognizes the names provided but did not retain any persona details in memory."",
+      ""Context_Utilization"": ""Memory is not actively utilized in the responses after the names were provided, as the agent does not reference previous inputs."",
+      ""Token_Efficiency"": ""Overall responses were reasonably concise but could be more streamlined, especially in the third response.""
+    }
+  },
+  ""Session_B"": {
+    ""Relevance"": 7,
+    ""Context_Utilization"": 3,
+    ""Token_Efficiency"": 6,
+    ""reasoning"": {
+      ""Relevance"": ""The AI acknowledged the names correctly but does not recall them in subsequent turns, which affects overall relevance."",
+      ""Context_Utilization"": ""Without memory, the context from previous turns is not connected, limiting the understanding of 'Who am I now?'."",
+      ""Token_Efficiency"": ""Responses are slightly longer than necessary, particularly in the third response, but they cover the expected content.""
+    }
+  }
+}
+```"

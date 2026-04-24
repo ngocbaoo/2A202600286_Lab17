@@ -1,0 +1,98 @@
+[
+    {
+        "id": "case_1",
+        "name": "User Preference Recall",
+        "difficulty": "Medium",
+        "turns": [
+            {"query": "My favorite color is blue and I prefer concise answers.", "expected_intent": "save_preference"},
+            {"query": "What is the capital of France?", "expected_intent": "general"},
+            {"query": "Wait, what is my favorite color and how should you answer me?", "expected_intent": "use_long_term"}
+        ]
+    },
+    {
+        "id": "case_2",
+        "name": "Semantic Fact Retrieval",
+        "difficulty": "Medium",
+        "turns": [
+            {"query": "DeepSeek-V3 is a strong open-source model with 671B parameters.", "expected_intent": "save_semantic"},
+            {"query": "Tell me about some recent LLMs.", "expected_intent": "use_semantic"}
+        ]
+    },
+    {
+        "id": "case_3",
+        "name": "Episodic Experience",
+        "difficulty": "Hard",
+        "turns": [
+            {"query": "I am planning a trip to Japan next month.", "expected_intent": "save_episodic"},
+            {"query": "Actually, I changed my mind. I'm going to Korea.", "expected_intent": "save_episodic"},
+            {"query": "Where did I say I was going first and why did I change?", "expected_intent": "use_episodic"}
+        ]
+    },
+    {
+        "id": "case_4",
+        "name": "Context Window Stress",
+        "difficulty": "Hard",
+        "turns": [
+            {"query": "Here is a list of 20 items: apple, banana, cherry, date, elderberry, fig, grape, honeydew, kiwi, lemon, mango, nectarine, orange, papaya, quince, raspberry, strawberry, tangerine, ugli, vanilla.", "expected_intent": "buffer"},
+            {"query": "Repeat the list back to me.", "expected_intent": "buffer"},
+            {"query": "Now, what was the 5th item?", "expected_intent": "buffer"}
+        ]
+    },
+    {
+        "id": "case_5",
+        "name": "Combined Memory",
+        "difficulty": "Hard",
+        "turns": [
+            {"query": "I am an AI researcher named Alex.", "expected_intent": "long_term"},
+            {"query": "Did you know that Llama 4 is rumored to have 1T parameters?", "expected_intent": "semantic"},
+            {"query": "Recall who I am and what I told you about a future model.", "expected_intent": "multi_memory"}
+        ]
+    },
+    {
+        "id": "case_6",
+        "name": "Personal Preferences Cross-Turn",
+        "difficulty": "Medium",
+        "turns": [
+            {"query": "I am allergic to peanuts. Please remember that.", "expected_intent": "long_term"},
+            {"query": "Suggest a recipe for a healthy snack.", "expected_intent": "use_long_term"}
+        ]
+    },
+    {
+        "id": "case_7",
+        "name": "Detailed Experience Recall",
+        "difficulty": "Hard",
+        "turns": [
+            {"query": "I just watched the movie Inception for the first time. The ending was confusing.", "expected_intent": "episodic"},
+            {"query": "We discussed a movie recently. Which one was it and what was my reaction?", "expected_intent": "use_episodic"}
+        ]
+    },
+    {
+        "id": "case_8",
+        "name": "Multi-Step Reasoning with Memory",
+        "difficulty": "Hard",
+        "turns": [
+            {"query": "The project deadline is May 15th.", "expected_intent": "long_term"},
+            {"query": "It takes me 3 days to write a report.", "expected_intent": "long_term"},
+            {"query": "Given the deadline, when should I start the report if I want to finish 2 days early?", "expected_intent": "use_long_term"}
+        ]
+    },
+    {
+        "id": "case_9",
+        "name": "Fact Verification",
+        "difficulty": "Easy",
+        "turns": [
+            {"query": "The speed of light is approximately 299,792,458 meters per second.", "expected_intent": "general"},
+            {"query": "What is the speed of light exactly?", "expected_intent": "semantic"}
+        ]
+    },
+    {
+        "id": "case_10",
+        "name": "Session Switch",
+        "difficulty": "Medium",
+        "turns": [
+            {"query": "My name is Bob.", "expected_intent": "long_term"},
+            {"query": "My name is Alice.", "expected_intent": "long_term"},
+            {"query": "Who am I now?", "expected_intent": "buffer"}
+        ]
+    }
+]

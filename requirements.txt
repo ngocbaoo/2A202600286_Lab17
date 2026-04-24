@@ -1,0 +1,10 @@
+langgraph
+langchain
+langchain-openai
+chromadb
+redis
+python-dotenv
+pandas
+numpy
+jsonlines
+tiktoken
