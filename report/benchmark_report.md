@@ -5,7 +5,7 @@
 **MSSV:** 2A202600286
 
 ## 1. Tổng quan (Executive Summary)
-Báo cáo này trình bày kết quả đánh giá hiệu suất của Agent tích hợp hệ thống đa bộ nhớ (Short-term, Long-term Redis, Episodic JSON, Semantic Chroma) so với Agent cơ bản không có bộ nhớ bổ trợ. Thử nghiệm được thực hiện trên 10 kịch bản hội thoại đa lượt với độ khó khác nhau.
+Báo cáo này trình bày kết quả đánh giá hiệu suất của Agent tích hợp hệ thống đa bộ nhớ (Short-term, Long-term Redis, Episodic JSON, Semantic Chroma) so với Agent cơ bản không có bộ nhớ bổ trợ. Thử nghiệm được thực hiện trên 11 kịch bản hội thoại đa lượt với độ khó khác nhau (bao gồm cả các bài kiểm tra xung đột thông tin).
 
 ### Chỉ số chính (Key Metrics)
 | Chỉ số | Agent Có Bộ Nhớ (Session A) | Agent Không Bộ Nhớ (Session B) |
@@ -59,7 +59,20 @@ Báo cáo này trình bày kết quả đánh giá hiệu suất của Agent tí
 
 ---
 
-## 4. Kết luận và Đề xuất (Conclusion & Recommendations)
+## 4. Phản hồi về Quyền riêng tư & Hạn chế (Reflection & Privacy)
+
+### Rủi ro PII & Quyền riêng tư
+- **Rủi ro PII**: Bộ nhớ **Long-term (Redis)** và **Episodic (JSON)** là nơi nhạy cảm nhất vì lưu trữ thông tin cá nhân (tên, dị ứng, thói quen) và nội dung hội thoại chi tiết.
+- **Quản lý dữ liệu**: Trong hệ thống thực tế, cần triển khai cơ chế **TTL (Time To Live)** cho Redis và cho phép người dùng yêu cầu xóa (Deletion) các tập tin log episodic.
+- **Sự đồng thuận (Consent)**: Cần có thông báo rõ ràng khi hệ thống bắt đầu "ghi nhớ" các thông tin mang tính cá nhân.
+
+### Hạn chế kỹ thuật (Limitations)
+- **Độ trễ**: Việc truy vấn đa tầng làm tăng thời gian phản hồi. Khi scale lên hàng triệu người dùng, Redis và ChromaDB cần được tối ưu hóa về chỉ mục (indexing).
+- **Mâu thuẫn bộ nhớ**: Khi thông tin thay đổi nhanh chóng (ví dụ: đổi địa chỉ liên tục), hệ thống cần cơ chế ghi đè mạnh mẽ hơn để tránh việc Router lấy ra các "bản vá" cũ từ Semantic memory.
+
+---
+
+## 5. Kết luận và Đề xuất (Conclusion & Recommendations)
 
 ### Kết luận
 Hệ thống **Multi-memory Agent** cải thiện đáng kể khả năng cá nhân hóa và ghi nhớ thông tin dài hạn của AI. Đặc biệt hiệu quả trong các nhiệm vụ yêu cầu:

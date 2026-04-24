@@ -53,9 +53,23 @@ class ContextManager:
                 
         # Construct final message list
         messages = [SystemMessage(content=system_message)]
-        if available_memories:
-            mem_context = "Relevant Context from Memory:\n" + "\n".join(available_memories)
-            messages.append(SystemMessage(content=mem_context))
+        
+        # Sectioned Memory Injection
+        if recalled_memories:
+            profile_mem = [m for m in recalled_memories if "[User Preference]" in m]
+            semantic_mem = [m for m in recalled_memories if "[Factual Recall]" in m]
+            episodic_mem = [m for m in recalled_memories if "[Experience Recall]" in m]
+            
+            mem_content = "--- RECALLED CONTEXT ---\n"
+            if profile_mem:
+                mem_content += "\n[USER PROFILE]\n" + "\n".join(profile_mem)
+            if semantic_mem:
+                mem_content += "\n[FACTUAL KNOWLEDGE]\n" + "\n".join(semantic_mem)
+            if episodic_mem:
+                mem_content += "\n[PAST EPISODES]\n" + "\n".join(episodic_mem)
+            mem_content += "\n------------------------"
+            
+            messages.append(SystemMessage(content=mem_content))
         
         messages.extend(final_history)
         messages.append(HumanMessage(content=user_query))

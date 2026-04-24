@@ -94,5 +94,15 @@
             {"query": "My name is Alice.", "expected_intent": "long_term"},
             {"query": "Who am I now?", "expected_intent": "buffer"}
         ]
+    },
+    {
+        "id": "case_11",
+        "name": "Mandatory Allergy Conflict",
+        "difficulty": "Medium",
+        "turns": [
+            {"query": "Tôi bị dị ứng sữa bò. Hãy nhớ nhé.", "expected_intent": "long_term"},
+            {"query": "À nhầm, tôi dị ứng đậu nành chứ không phải sữa bò.", "expected_intent": "long_term_update"},
+            {"query": "Cuối cùng thì tôi bị dị ứng gì?", "expected_intent": "use_long_term"}
+        ]
     }
 ]
